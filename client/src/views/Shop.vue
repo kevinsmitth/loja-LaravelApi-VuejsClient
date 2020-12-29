@@ -11,7 +11,7 @@
                 v-for="product in products"
                 :key="product.id"
             >
-                <router-link :to="{name:'product', params: {id: product.id, name: product.name}}" style="text-decoration:none;">
+                <router-link :to="{name:'product', params: {id: product.id}}" style="text-decoration:none;">
 
                     <template slot="progress">
                     <v-progress-linear

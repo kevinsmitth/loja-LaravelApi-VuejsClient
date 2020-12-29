@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderItemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -80,7 +85,7 @@ class OrderItemController extends Controller
      */
     public function show(Order $orderItem)
     {
-        $order = Order::with('user', 'address', 'payment_type')->where('id', $orderItem->id)->get();
+        $order = Order::with('user', 'address', 'payment_type', 'order_item')->where('id', $orderItem->id)->get();
         $order_items = OrderItem::with('product', 'order')->where('order_id', $orderItem->id)->get();
         return response()->json(array('order' => $order, 'order_items' => $order_items));
     }

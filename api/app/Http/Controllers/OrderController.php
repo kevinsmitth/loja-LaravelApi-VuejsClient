@@ -58,7 +58,9 @@ class OrderController extends Controller
         $order = $request->all();
         $order['user_id'] = Auth::user()->id;
         $order['address_id'] = $user_address->id;
+        $order['payment_type_id'] = $request->payment_type_id;
         $order['total'] = CartProduct::select('value')->where('user_id', Auth::id())->sum('value');
+        $order['status'] = 'Pendente';
         $order_do = Order::create($order);
 //
 

@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('address_id');
             $table->unsignedBigInteger('payment_type_id');
             $table->decimal('total',10,2);
-            $table->string('status');
+            $table->string('status')->default('Preparando');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

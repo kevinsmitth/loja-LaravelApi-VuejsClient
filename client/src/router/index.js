@@ -27,6 +27,15 @@ const routes = [
     name: 'signin',
     component: SignIn,
     meta: {title: 'Entrar'},
+    beforeEnter: (to, from, next) => {
+      if (store.getters['auth/authenticated']) {
+        return next({
+          name: 'shop'
+        })
+      }
+      
+      next();
+    }
   },
   {
     path: '/dashboard',
@@ -40,7 +49,7 @@ const routes = [
         })
       }
       
-      next()
+      next();
     }
   },
   {
@@ -57,16 +66,6 @@ const routes = [
     component: Product,
     meta: {title: 'Produto'},
 
-    /*beforeEnter: (to, from, next) => {
-   
-       if () {
-        return next({
-          name: 'product'
-        })
-       }
-   
-       next();
-     },*/
   },
 
   {

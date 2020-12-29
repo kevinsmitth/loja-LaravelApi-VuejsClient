@@ -14,6 +14,7 @@ class Order extends Model
         'address_id',
         'payment_type_id',
         'total',
+        'status',
     ];
 
     public function user()
@@ -29,5 +30,10 @@ class Order extends Model
     public function payment_type()
     {
         return $this->belongsTo(PaymentType::class, 'payment_type_id', 'id');
+    }
+
+    public function order_item()
+    {
+        return $this->hasMany(OrderItem::class, 'order_id', 'id');
     }
 }

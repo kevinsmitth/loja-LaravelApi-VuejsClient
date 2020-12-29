@@ -44,6 +44,11 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    public function isAdmin()
+    {
+        return $this->is_admin;
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *

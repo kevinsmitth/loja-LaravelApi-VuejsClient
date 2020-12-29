@@ -36,7 +36,7 @@ Route::apiResource('/address','AddressController');
 
 Route::group([
 
-    'middleware' => 'api',
+    'middleware' => 'api','admin',
     'prefix' => 'auth'
 
 ], function ($router) {

@@ -1,7 +1,7 @@
 <template>
   <v-app id="app" >
       <TheNavigation/>
-    <router-view/>
+    <router-view></router-view>
   </v-app>
 
 </template>
@@ -10,6 +10,7 @@
   import TheNavigation from '@/components/TheNavigation/TheNavigation'
 
   export default {
+    name: "app",
     components: {
       TheNavigation
     },

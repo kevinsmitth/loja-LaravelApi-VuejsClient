@@ -37,7 +37,7 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'address' => 'required',
+            'street' => 'required',
             'number' => 'required',
             'complement' => 'required',
             'district' => 'required',
